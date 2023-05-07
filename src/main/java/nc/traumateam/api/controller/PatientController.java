@@ -1,9 +1,11 @@
 package nc.traumateam.api.controller;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import nc.traumateam.api.converter.PatientConverter;
 import nc.traumateam.api.entities.dto.ListPatientDTO;
 import nc.traumateam.api.entities.dto.PatientDTO;
+import nc.traumateam.api.entities.dto.UpdatePatientDTO;
 import nc.traumateam.api.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,5 +30,13 @@ public class PatientController {
         return PatientConverter.toListDTO(repository.findAll(page));
     }
 
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody UpdatePatientDTO dto) {
+        var patient = repository.findById(dto.id());
+        patient.ifPresent(p -> {
+            PatientConverter.updateFields(p, dto);
+        });
+    }
 
 }
