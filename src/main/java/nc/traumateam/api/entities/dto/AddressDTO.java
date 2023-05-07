@@ -12,7 +12,6 @@ public record AddressDTO(
         String neighborhood,
 
         @NotBlank @Pattern(regexp = "\\d{8}")
-
         String cep,
 
         @NotBlank

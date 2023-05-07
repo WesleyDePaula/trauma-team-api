@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import nc.traumateam.api.enums.SpecialtyEnum;
 
-public record DoctorDTO(
+public record SaveDoctorDTO(
 
         @NotBlank
         String name,

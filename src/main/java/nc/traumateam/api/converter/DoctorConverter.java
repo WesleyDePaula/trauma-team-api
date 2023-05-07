@@ -1,18 +1,18 @@
 package nc.traumateam.api.converter;
 
 import lombok.experimental.UtilityClass;
-import nc.traumateam.api.entities.dto.DoctorDTO;
+import nc.traumateam.api.entities.dto.SaveDoctorDTO;
 import nc.traumateam.api.entities.dto.ListDoctorDTO;
+import nc.traumateam.api.entities.dto.UpdateDoctorDTO;
 import nc.traumateam.api.entities.entity.DoctorEntity;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @UtilityClass
 public class DoctorConverter {
 
-    public static DoctorEntity toEntity(DoctorDTO dto){
+    public static DoctorEntity toEntity(SaveDoctorDTO dto){
         return DoctorEntity.builder()
                 .name(dto.name())
                 .email(dto.email())
@@ -23,8 +23,8 @@ public class DoctorConverter {
                 .build();
     }
 
-    public static DoctorDTO toDTO(DoctorEntity entity) {
-        return new DoctorDTO(
+    public static SaveDoctorDTO toDTO(DoctorEntity entity) {
+        return new SaveDoctorDTO(
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPhone(),
@@ -33,12 +33,13 @@ public class DoctorConverter {
                 AddressConverter.toDTO(entity.getAddress()));
     }
 
-    public static List<DoctorDTO> toDTO(List<DoctorEntity> entities) {
+    public static List<SaveDoctorDTO> toDTO(List<DoctorEntity> entities) {
         return entities.stream().map(DoctorConverter::toDTO).toList();
     }
 
     public static ListDoctorDTO toListDTO(DoctorEntity entity){
         return new ListDoctorDTO(
+                entity.getId().toString(),
                 entity.getName(),
                 entity.getEmail(),
                 entity.getCrm(),
@@ -49,4 +50,18 @@ public class DoctorConverter {
         return entities.map(DoctorConverter::toListDTO);
     }
 
+    public static DoctorEntity updateFields(DoctorEntity entity, UpdateDoctorDTO dto) {
+        if (dto.name() != null && !dto.name().isBlank()) {
+            entity.setName(dto.name());
+        }
+
+        if (dto.phone() != null && !dto.phone().isBlank()) {
+            entity.setPhone(dto.phone());
+        }
+
+        if (dto.address() != null) {
+            entity.setAddress(AddressConverter.updateFields(dto.address()));
+        }
+        return entity;
+    }
 }
