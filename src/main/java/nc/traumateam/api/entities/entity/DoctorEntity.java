@@ -28,5 +28,6 @@ public class DoctorEntity {
     private SpecialtyEnum specialty;
     @Embedded
     private AddressEntity address;
+    private Boolean deleted;
 
 }
