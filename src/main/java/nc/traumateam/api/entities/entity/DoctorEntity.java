@@ -2,6 +2,7 @@ package nc.traumateam.api.entities.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import nc.traumateam.api.entities.dto.UpdateDoctorDTO;
 import nc.traumateam.api.enums.SpecialtyEnum;
 
 import java.util.UUID;

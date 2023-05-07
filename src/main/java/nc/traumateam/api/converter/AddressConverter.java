@@ -29,4 +29,38 @@ public class AddressConverter {
                 entity.getNumber(),
                 entity.getComplement());
     }
+
+    public static AddressEntity updateFields(AddressDTO dto) {
+        var entity = new AddressEntity();
+
+        if (dto.street() != null && !dto.street().isBlank()) {
+            entity.setStreet(dto.street());
+        }
+
+        if (dto.neighborhood() != null && !dto.neighborhood().isBlank()) {
+            entity.setNeighborhood(dto.neighborhood());
+        }
+
+        if (dto.cep() != null && !dto.cep().isBlank()) {
+            entity.setCep(dto.cep());
+        }
+
+        if (dto.city() != null && !dto.city().isBlank()) {
+            entity.setCity(dto.city());
+        }
+
+        if (dto.uf() != null && !dto.uf().isBlank()) {
+            entity.setUf(dto.uf());
+        }
+
+        if (dto.number() != null && !dto.number().isBlank()) {
+            entity.setNumber(dto.number());
+        }
+
+        if (dto.complement() != null && !dto.complement().isBlank()) {
+            entity.setComplement(dto.complement());
+        }
+
+        return entity;
+    }
 }
