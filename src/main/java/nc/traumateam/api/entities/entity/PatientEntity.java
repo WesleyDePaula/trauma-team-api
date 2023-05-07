@@ -27,4 +27,6 @@ public class PatientEntity {
     @Embedded
     private AddressEntity address;
 
+    private Boolean deleted;
+
 }

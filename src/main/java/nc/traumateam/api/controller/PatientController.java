@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/patient")
 public class PatientController {
@@ -27,7 +29,7 @@ public class PatientController {
 
     @GetMapping
     public Page<ListPatientDTO> list(@PageableDefault(size = 10, sort = {"name"}) Pageable page){
-        return PatientConverter.toListDTO(repository.findAll(page));
+        return PatientConverter.toListDTO(repository.findAllByDeletedFalse(page));
     }
 
     @PutMapping
@@ -36,6 +38,15 @@ public class PatientController {
         var patient = repository.findById(dto.id());
         patient.ifPresent(p -> {
             PatientConverter.updateFields(p, dto);
+        });
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable UUID id) {
+        var patient = repository.findById(id);
+        patient.ifPresent(p -> {
+            p.setDeleted(true);
         });
     }
 
