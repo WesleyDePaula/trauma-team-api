@@ -1,0 +1,1 @@
+alter table doctor add deleted boolean not null default false;
