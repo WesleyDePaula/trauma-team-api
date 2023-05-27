@@ -1,10 +1,7 @@
 package nc.traumateam.api.converter;
 
 import lombok.experimental.UtilityClass;
-import nc.traumateam.api.entities.dto.AddressDTO;
-import nc.traumateam.api.entities.dto.ListPatientDTO;
-import nc.traumateam.api.entities.dto.PatientDTO;
-import nc.traumateam.api.entities.dto.UpdatePatientDTO;
+import nc.traumateam.api.entities.dto.*;
 import nc.traumateam.api.entities.entity.PatientEntity;
 import org.springframework.data.domain.Page;
 
@@ -19,6 +16,7 @@ public class PatientConverter {
                 .email(dto.email())
                 .phone(dto.phone())
                 .cpf(dto.cpf())
+                .deleted(false)
                 .address(AddressConverter.toEntity(dto.address()))
                 .build();
     }
@@ -48,5 +46,15 @@ public class PatientConverter {
             patient.setAddress(AddressConverter.updateFields(dto.address()));
         }
 
+    }
+
+    public static DetailsPatientDTO toDetailsPatientDTO(PatientEntity entity) {
+        return new DetailsPatientDTO(
+                entity.getName(),
+                entity.getEmail(),
+                entity.getPhone(),
+                entity.getCpf(),
+                entity.getAddress()
+        );
     }
 }

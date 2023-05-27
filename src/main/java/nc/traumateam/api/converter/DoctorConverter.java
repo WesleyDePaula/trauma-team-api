@@ -1,6 +1,7 @@
 package nc.traumateam.api.converter;
 
 import lombok.experimental.UtilityClass;
+import nc.traumateam.api.entities.dto.DetailsDoctorDTO;
 import nc.traumateam.api.entities.dto.SaveDoctorDTO;
 import nc.traumateam.api.entities.dto.ListDoctorDTO;
 import nc.traumateam.api.entities.dto.UpdateDoctorDTO;
@@ -20,6 +21,7 @@ public class DoctorConverter {
                 .crm(dto.crm())
                 .specialty(dto.specialty())
                 .address(AddressConverter.toEntity(dto.address()))
+                .deleted(false)
                 .build();
     }
 
@@ -50,6 +52,8 @@ public class DoctorConverter {
         return entities.map(DoctorConverter::toListDTO);
     }
 
+
+
     public static DoctorEntity updateFields(DoctorEntity entity, UpdateDoctorDTO dto) {
         if (dto.name() != null && !dto.name().isBlank()) {
             entity.setName(dto.name());
@@ -63,5 +67,17 @@ public class DoctorConverter {
             entity.setAddress(AddressConverter.updateFields(dto.address()));
         }
         return entity;
+    }
+
+    public static DetailsDoctorDTO toDetailsDoctorDTO(DoctorEntity entity) {
+        return new DetailsDoctorDTO(
+                entity.getId().toString(),
+                entity.getName(),
+                entity.getEmail(),
+                entity.getCrm(),
+                entity.getPhone(),
+                entity.getSpecialty(),
+                entity.getAddress()
+        );
     }
 }
