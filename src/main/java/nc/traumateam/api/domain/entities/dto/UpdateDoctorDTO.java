@@ -1,4 +1,4 @@
-package nc.traumateam.api.entities.dto;
+package nc.traumateam.api.domain.entities.dto;
 
 import jakarta.validation.constraints.NotNull;
 

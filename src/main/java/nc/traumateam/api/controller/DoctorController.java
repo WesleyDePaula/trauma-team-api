@@ -2,11 +2,11 @@ package nc.traumateam.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import nc.traumateam.api.converter.DoctorConverter;
-import nc.traumateam.api.entities.dto.SaveDoctorDTO;
-import nc.traumateam.api.entities.dto.ListDoctorDTO;
-import nc.traumateam.api.entities.dto.UpdateDoctorDTO;
-import nc.traumateam.api.repositories.DoctorRepository;
+import nc.traumateam.api.domain.converter.DoctorConverter;
+import nc.traumateam.api.domain.entities.dto.SaveDoctorDTO;
+import nc.traumateam.api.domain.entities.dto.ListDoctorDTO;
+import nc.traumateam.api.domain.entities.dto.UpdateDoctorDTO;
+import nc.traumateam.api.domain.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

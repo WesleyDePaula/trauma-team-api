@@ -1,4 +1,4 @@
-package nc.traumateam.api.entities.dto;
+package nc.traumateam.api.domain.entities.dto;
 
 public record ListPatientDTO(
         String id,

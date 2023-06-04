@@ -1,4 +1,4 @@
-package nc.traumateam.api.enums;
+package nc.traumateam.api.domain.enums;
 
 public enum SpecialtyEnum {
     ORTHOPEDICS,

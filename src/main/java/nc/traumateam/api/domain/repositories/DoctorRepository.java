@@ -1,6 +1,6 @@
-package nc.traumateam.api.repositories;
+package nc.traumateam.api.domain.repositories;
 
-import nc.traumateam.api.entities.entity.DoctorEntity;
+import nc.traumateam.api.domain.entities.entity.DoctorEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

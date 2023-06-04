@@ -1,4 +1,4 @@
-package nc.traumateam.api.entities.entity;
+package nc.traumateam.api.domain.entities.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

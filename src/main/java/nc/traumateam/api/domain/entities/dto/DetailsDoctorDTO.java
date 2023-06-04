@@ -1,7 +1,7 @@
-package nc.traumateam.api.entities.dto;
+package nc.traumateam.api.domain.entities.dto;
 
-import nc.traumateam.api.entities.entity.AddressEntity;
-import nc.traumateam.api.enums.SpecialtyEnum;
+import nc.traumateam.api.domain.entities.entity.AddressEntity;
+import nc.traumateam.api.domain.enums.SpecialtyEnum;
 
 public record DetailsDoctorDTO (
         String id,
