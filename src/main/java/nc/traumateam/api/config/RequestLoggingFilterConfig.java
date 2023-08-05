@@ -1,4 +1,4 @@
-package nc.traumateam.api;
+package nc.traumateam.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

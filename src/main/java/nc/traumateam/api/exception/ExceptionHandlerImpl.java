@@ -1,4 +1,4 @@
-package nc.traumateam.api;
+package nc.traumateam.api.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;

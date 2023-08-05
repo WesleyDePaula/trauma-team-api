@@ -1,9 +1,9 @@
-package nc.traumateam.api.domain.converter;
+package nc.traumateam.api.model.converter;
 
 import lombok.experimental.UtilityClass;
-import nc.traumateam.api.domain.entities.dto.PatientDTO;
-import nc.traumateam.api.domain.entities.entity.PatientEntity;
-import nc.traumateam.api.domain.entities.dto.*;
+import nc.traumateam.api.model.entities.dto.PatientDTO;
+import nc.traumateam.api.model.entities.entity.PatientEntity;
+import nc.traumateam.api.model.entities.dto.*;
 import org.springframework.data.domain.Page;
 
 @UtilityClass

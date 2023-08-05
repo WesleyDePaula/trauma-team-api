@@ -1,8 +1,8 @@
-package nc.traumateam.api.domain.converter;
+package nc.traumateam.api.model.converter;
 
 import lombok.experimental.UtilityClass;
-import nc.traumateam.api.domain.entities.dto.AddressDTO;
-import nc.traumateam.api.domain.entities.entity.AddressEntity;
+import nc.traumateam.api.model.entities.dto.AddressDTO;
+import nc.traumateam.api.model.entities.entity.AddressEntity;
 
 @UtilityClass
 public class AddressConverter {

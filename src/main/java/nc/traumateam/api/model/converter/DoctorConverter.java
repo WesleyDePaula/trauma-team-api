@@ -1,11 +1,11 @@
-package nc.traumateam.api.domain.converter;
+package nc.traumateam.api.model.converter;
 
 import lombok.experimental.UtilityClass;
-import nc.traumateam.api.domain.entities.dto.DetailsDoctorDTO;
-import nc.traumateam.api.domain.entities.dto.SaveDoctorDTO;
-import nc.traumateam.api.domain.entities.dto.UpdateDoctorDTO;
-import nc.traumateam.api.domain.entities.entity.DoctorEntity;
-import nc.traumateam.api.domain.entities.dto.ListDoctorDTO;
+import nc.traumateam.api.model.entities.dto.DetailsDoctorDTO;
+import nc.traumateam.api.model.entities.dto.SaveDoctorDTO;
+import nc.traumateam.api.model.entities.dto.UpdateDoctorDTO;
+import nc.traumateam.api.model.entities.entity.DoctorEntity;
+import nc.traumateam.api.model.entities.dto.ListDoctorDTO;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
